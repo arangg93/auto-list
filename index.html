@@ -21,31 +21,31 @@
         sans-serif;
     }
 
-    /* 전체를 상·하로 나누는 컨테이너 */
+    /* 전체 상·하 레이아웃 */
     .page {
       display: flex;
       flex-direction: column;
-      height: 100vh; /* 브라우저 높이 꽉 채우기 */
+      height: 100vh;
     }
 
     /* 상단 제목 영역 */
     .header {
-      flex: 0 0 60px;        /* 높이 고정 느낌 */
+      flex: 0 0 60px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #f5f5f5;
       border-bottom: 1px solid #ddd;
-      font-size: 15px;       /* 요청한 정도의 글자 크기 */
+      font-size: 15px;
       font-weight: 600;
       text-align: center;
     }
 
-    /* 하단 영역 (좌/우 나누기) */
+    /* 하단 좌·우 레이아웃 */
     .content {
       flex: 1;
       display: flex;
-      min-height: 0; /* iframe이 영역 넘치지 않도록 */
+      min-height: 0;
     }
 
     .left-pane,
@@ -53,14 +53,50 @@
       height: 100%;
     }
 
-    /* 왼쪽: 1/4, 오른쪽: 3/4 */
+    /* 왼쪽 1/4, 오른쪽 3/4 */
     .left-pane {
       flex: 1;
       border-right: 1px solid #ddd;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+      background-color: #f8fafc;
+      text-align: center;
     }
 
     .right-pane {
       flex: 3;
+    }
+
+    .left-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .left-desc {
+      font-size: 12px;
+      line-height: 1.4;
+      margin-bottom: 1rem;
+    }
+
+    .open-btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 6px;
+      border: 1px solid #0f62fe;
+      background-color: #0f62fe;
+      color: #ffffff;
+      cursor: pointer;
+    }
+
+    .open-btn:hover {
+      opacity: 0.9;
     }
 
     iframe {
@@ -77,17 +113,27 @@
       상우고 물품 구입 간편화 웹앱 / 제작 : 독서하는 경호t
     </div>
 
-    <!-- 하단 좌/우 영역 -->
+    <!-- 하단 좌·우 영역 -->
     <div class="content">
-      <!-- 왼쪽 1/4 : 오팔 앱 -->
+      <!-- 왼쪽: 오팔 안내 + 새 탭 열기 버튼 -->
       <div class="left-pane">
-        <iframe
-          src="https://opal.google/?flow=drive:/1SUx3UtzuZNitB50UlZhczJQTctI7d_uQ&shared&mode=app"
-          title="상우고 쇼핑몰 - Opal App"
-        ></iframe>
+        <div class="left-title">상우고 쇼핑몰 오팔 웹앱</div>
+        <div class="left-desc">
+          이 페이지에서는 보안 정책으로 인해<br />
+          오팔 웹앱을 직접 띄울 수 없습니다.<br />
+          아래 버튼을 눌러 새 창에서 열어 주세요.
+        </div>
+        <a
+          class="open-btn"
+          href="https://opal.google/?flow=drive:/1SUx3UtzuZNitB50UlZhczJQTctI7d_uQ&shared&mode=app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          오팔 웹앱 열기
+        </a>
       </div>
 
-      <!-- 오른쪽 3/4 : 구글 스프레드시트 -->
+      <!-- 오른쪽: 스프레드시트 임베드 -->
       <div class="right-pane">
         <iframe
           src="https://docs.google.com/spreadsheets/d/15vE6CsREnEovmLLqPMRblaZSY_r4dQqFkBIhm0khrp4/edit?gid=1570451484#gid=1570451484"
